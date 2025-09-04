@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Collossal Creative Academy — a bold, Creator-led hub for art, sewing, and marketing skills that turn creativity into income.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Collossal Creative Academy</title>
+
+</head>
+<body class="contact">
+<header class="site-header" role="banner" aria-label="Primary">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Home">
+      <!-- Logo placeholder: replace the rectangle below with your actual logo -->
+      <img class="logo-img" src="images/brand/logo-icon-only.png" srcset="images/brand/logo-icon-only.png 1x, images/brand/logo-icon-only@2x.png 2x" alt="Collossal Creative Academy logo" width="96" height="64">
+      <span class="brand-text"><span class="brand-name">Collossal</span> <span class="brand-sub">Creative Academy</span></span>
+    </a>
+
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav" class="nav" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html" class="btn btn-gold">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+  <section class="page-hero stripes">
+    <div class="container">
+      <h1>Contact & Enrollment</h1>
+      <p class="lead">Ready to begin? Tell us about your goals and we’ll follow up.</p>
+    </div>
+  </section>
+
+  <section class="container form-wrap">
+    <form class="card form" method="post" action="#" onsubmit="event.preventDefault(); alert('Form submitted (demo). Connect to Formspree or your email later.');">
+      <div class="grid-2">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+27 ...">
+        </div>
+        <div class="field">
+          <label for="program">Interested Program</label>
+          <select id="program" name="program" required>
+            <option value="">Select...</option>
+            <option>Sketching & Drawing</option>
+            <option>Fabric & Canvas Painting</option>
+            <option>Sewing & Product Design</option>
+            <option>Market-Ready Marketing</option>
+            <option>Beauty &amp; Makeup</option>
+            <option>Natural Skincare Formulation</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="goals">Your Goals</label>
+        <textarea id="goals" name="goals" rows="5" placeholder="Tell us what you want to create and sell..."></textarea>
+      </div>
+      <div class="agree">
+        <label><input type="checkbox" required> I consent to be contacted about my inquiry.</label>
+      </div>
+      <button class="btn btn-gold" type="submit">Send Inquiry</button>
+      <p class="tiny muted">Prefer email? Write to <a href="mailto:l.botha8273@gmail.com">l.botha8273@gmail.com</a></p>
+    </form>
+  </section>
+<section class="image-strip"><div class="container strip">
+          <img src="images/gallery/online-shop-1.png" alt="Creative collage 4">
+          <img src="images/gallery/natural-skincare-1.png" alt="Creative collage 1">
+          <img src="images/gallery/sewing-machine-3.png" alt="Creative collage 2">
+        </div></section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div>
+      <h3 class="footer-brand">Collossal Creative Academy</h3>
+      <p class="tagline">Teach • Reach • Achieve</p>
+      <p class="small">A creator-first learning hub turning imagination into market-ready products.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">Vision & Mission</a></li>
+        <li><a href="programs.html">Programs & Workshops</a></li>
+        <li><a href="contact.html">Contact & Enrollment</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:info@collossalcreativeacademy.co.za">info@collossalcreativeacademy.co.za</a></p>
+      <p>Gauteng, South Africa</p>
+    </div>
+  </div>
+  <div class="container tiny muted">© 2025 Collossal Creative Academy. All rights reserved. Created by project2pixel.co.za</div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

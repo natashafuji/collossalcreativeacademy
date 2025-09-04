@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Collossal Creative Academy — a bold, Creator-led hub for art, sewing, and marketing skills that turn creativity into income.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Collossal Creative Academy</title>
+
+<!-- Page-scoped tweaks (only for this page) -->
+<style>
+  /* 3-up grid on top row, 3 on bottom row (6 total) */
+  .card-grid{
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+
+  /* Background image panel shown after each program heading */
+  .program .program-hero{
+    height: 150px;
+    border-radius: 14px;
+    margin: .4rem 0 .9rem;
+    background:
+      linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)),
+      var(--img) center/cover no-repeat;
+    box-shadow: var(--shadow);
+  }
+
+  /* Ensure headings align so images start at the same vertical position */
+  .program h3{
+    margin:.3rem 0;
+    min-height: 3.2em;         /* room for up to ~2 lines */
+    display:flex; align-items:flex-end;
+  }
+
+  /* Make the bottom image strip "longer" and show full images (no crop) */
+  .image-strip .strip img{
+    height: 300px;             /* taller than the default 220px */
+    object-fit: contain;       /* show entire picture */
+    background:#fff;           /* tidy letterboxing on non-16:9 images */
+  }
+
+  /* Footer: make site name + links yellow (as in your note) */
+  .site-footer h3.footer-brand,
+  .site-footer a{
+    color: var(--sa-gold) !important;
+  }
+  .site-footer a:hover{
+    filter: brightness(1.08);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body class="programs">
+<header class="site-header" role="banner" aria-label="Primary">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Home">
+      <img class="logo-img" src="images/brand/logo-icon-only.png" srcset="images/brand/logo-icon-only.png 1x, images/brand/logo-icon-only@2x.png 2x" alt="Collossal Creative Academy logo" width="96" height="64">
+      <span class="brand-text"><span class="brand-name">Collossal</span> <span class="brand-sub">Creative Academy</span></span>
+    </a>
+
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav" class="nav" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html" class="btn btn-gold">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero gradient cool">
+    <div class="container">
+      <h1>Programs & Workshops</h1>
+      <p class="lead">Learn the craft, create the product, and launch with confidence.</p>
+    </div>
+  </section>
+
+  <section class="container card-grid">
+    <!-- Sketching & Drawing -->
+    <article class="card program">
+      <h3>Sketching & Drawing</h3>
+      <div class="program-hero" style="--img: url('images/gallery/sketching-1.png');"></div>
+      <p>Foundations in form, proportion, shading, and composition. Build a portfolio-ready piece.</p>
+      <ul class="simple">
+        <li>Beginner → Intermediate tracks</li>
+        <li>Weekly critiques & guided practice</li>
+        <li>Capstone: Finished portrait</li>
+      </ul>
+    </article>
+
+    <!-- Fabric & Canvas Painting -->
+    <article class="card program">
+      <h3>Fabric & Canvas Painting</h3>
+      <div class="program-hero" style="--img: url('images/gallery/block-print.jpg');"></div>
+      <p>Techniques across textile & canvas mediums, color theory, and surface preparation.</p>
+      <ul class="simple">
+        <li>Fabric-safe paints & fixatives</li>
+        <li>Design for wearables & décor</li>
+        <li>Capstone: Sellable canvas or textile piece</li>
+      </ul>
+    </article>
+
+    <!-- Sewing & Product Design -->
+    <article class="card program">
+      <h3>Sewing & Product Design</h3>
+      <div class="program-hero" style="--img: url('images/ai/sewing-offer-1.jpg');"></div>
+      <p>Pattern basics, seams & finishes, machine operation, and quality checks.</p>
+      <ul class="simple">
+        <li>Beginner tote → advanced accessories</li>
+        <li>Material selection & costing</li>
+        <li>Capstone: Market-ready handcrafted bag</li>
+      </ul>
+    </article>
+
+    <!-- Market-Ready Marketing -->
+    <article class="card program">
+      <h3>Market-Ready Marketing</h3>
+      <div class="program-hero" style="--img: url('images/gallery/market-1.png');"></div>
+      <p>Turn creations into income: brand basics, product photography, pricing, and selling online.</p>
+      <ul class="simple">
+        <li>Shop setup: marketplace or simple site</li>
+        <li>Social & storytelling for creatives</li>
+        <li>Launch checklist & first 10 sales plan</li>
+      </ul>
+    </article>
+
+    <!-- Beauty & Makeup -->
+    <article class="card program">
+      <h3>Beauty & Makeup</h3>
+      <div class="program-hero" style="--img: url('images/gallery/beauty-make-up-1.png');"></div>
+      <p>Techniques for camera-ready looks: skin prep, color matching, and creative styling.</p>
+      <ul class="simple">
+        <li>Hygiene & kit essentials</li>
+        <li>Natural day → editorial glam</li>
+        <li>Capstone: Portfolio shoot-ready look</li>
+      </ul>
+    </article>
+
+    <!-- NEW: Natural Skincare Formulation -->
+    <article class="card program">
+      <h3>Natural Skincare Formulation</h3>
+      <div class="program-hero" style="--img: url('images/gallery/natural-skincare-2.png');"></div>
+      <p>Create gentle, effective products using botanical ingredients and safe lab practice.</p>
+      <ul class="simple">
+        <li>Formulation basics: balms, serums, cleansers</li>
+        <li>Preservation, stability & labeling</li>
+        <li>Capstone: Branded mini skincare set</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="container enroll-cta">
+    <h2>Teach • Reach • Achieve</h2>
+    <p>Join a bold community of makers and turn your creativity into a sustainable path.</p>
+    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+  </section>
+
+  <section class="image-strip">
+    <div class="container strip">
+      <img src="images/gallery/make-up-1.png" alt="Creative">
+      <img src="images/gallery/yellow-dawing-1.png" alt="Creative">
+      <img src="images/gallery/make-up-2.png" alt="Creative">
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div>
+      <h3 class="footer-brand">Collossal Creative Academy</h3>
+      <p class="tagline">Teach • Reach • Achieve</p>
+      <p class="small">A creator-first learning hub turning imagination into market-ready products.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">Vision & Mission</a></li>
+        <li><a href="programs.html">Programs & Workshops</a></li>
+        <li><a href="contact.html">Contact & Enrollment</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:info@collossalcreativeacademy.co.za">info@collossalcreativeacademy.co.za</a></p>
+      <p>Gauteng, South Africa</p>
+    </div>
+  </div>
+  <div class="container tiny muted">© 2025 Collossal Creative Academy. All rights reserved. Created by project2pixel.co.za</div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
