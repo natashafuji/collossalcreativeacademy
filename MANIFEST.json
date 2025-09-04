@@ -1,0 +1,35 @@
+{
+  "copied": [
+    "brand/logo-icon-only.png",
+    "brand/logo-icon-only@2x.png",
+    "gallery/sketch-hand.jpg",
+    "gallery/block-print.jpg",
+    "gallery/sewing-machine.jpg",
+    "gallery/art-therapy-wheel.jpg",
+    "gallery/beauty-spa.jpg",
+    "gallery/pencil-flowers.jpg",
+    "gallery/beauty-circles.jpg",
+    "gallery/splash-face.jpg",
+    "gallery/silk-scissors.jpg",
+    "gallery/sketch-to-runway.jpg",
+    "gallery/creative-4.jpg"
+  ],
+  "missing_sources": [],
+  "derived": [
+    "gallery/creative-1.jpg from pencil-flowers.jpg",
+    "gallery/creative-2.jpg from beauty-circles.jpg",
+    "gallery/creative-3.jpg from splash-face.jpg",
+    "ai/sewing-offer-1.jpg from sewing-machine.jpg",
+    "ai/sewing-offer-2.jpg from beauty-spa.jpg",
+    "ai/sewing-offer-3.jpg from silk-scissors.jpg",
+    "hero/hero-home.jpg from pencil-flowers.jpg",
+    "hero/hero-home.webp from pencil-flowers.jpg",
+    "hero/hero-about.jpg from silk-scissors.jpg",
+    "hero/hero-about.webp from silk-scissors.jpg",
+    "hero/hero-programs.jpg from sewing-machine.jpg",
+    "hero/hero-programs.webp from sewing-machine.jpg",
+    "hero/hero-contact.jpg from sketch-to-runway.jpg",
+    "hero/hero-contact.webp from sketch-to-runway.jpg"
+  ],
+  "errors": []
+}
