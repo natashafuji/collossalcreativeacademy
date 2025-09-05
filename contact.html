@@ -46,10 +46,9 @@
   </section>
 
   <section class="container form-wrap">
-  <!-- Replace this line: action="#" ... onsubmit="event.preventDefault()..." -->
   <form class="card form" id="contactForm"
-        action="https://formspree.io/f/xxxxabcd"
-        method="POST" accept-charset="UTF-8">
+        action="https://formspree.io/f/xeolpvro"
+        method="POST">
     <div class="grid-2">
       <div class="field">
         <label for="name">Full Name</label>
@@ -83,17 +82,16 @@
         placeholder="Tell us what you want to create and sell..."></textarea>
     </div>
 
-    <!-- Give the consent checkbox a name so it’s included in the submission -->
     <div class="agree">
       <label><input type="checkbox" name="consent" value="yes" required>
         I consent to be contacted about my inquiry.</label>
     </div>
 
-    <!-- Optional: simple spam honeypot -->
+    <!-- optional honeypot -->
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
            style="position:absolute; left:-9999px" aria-hidden="true">
 
-    <!-- Optional: identify which form/page this came from -->
+    <!-- optional metadata -->
     <input type="hidden" name="form_name" value="Contact & Enrollment">
     <input type="hidden" name="page" value="contact.html">
 
@@ -102,6 +100,7 @@
       <a href="mailto:info@collossalcreativeacademy.co.za">info@collossalcreativeacademy.co.za</a></p>
   </form>
 </section>
+
 
 <section class="image-strip"><div class="container strip">
           <img src="online-shop-1.png" alt="Creative collage 4" width="600" height="900" loading="lazy" decoding="async">
