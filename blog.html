@@ -12,7 +12,12 @@
 <header class="site-header" role="banner" aria-label="Primary">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Home">
-      <img class="logo-img" src="logo-icon-only.png" srcset="logo-icon-only.png 1x, logo-icon-only@2x.png 2x" alt="Collossal Creative Academy logo" width="96" height="64">
+      <img class="logo-img"
+           src="logo-icon-only.png"
+           srcset="logo-icon-only.png 1x, logo-icon-only@2x.png 2x"
+           alt="Collossal Creative Academy logo"
+           width="96" height="64"
+           fetchpriority="high" decoding="async">
       <span class="brand-text"><span class="brand-name">Collossal</span> <span class="brand-sub">Creative Academy</span></span>
     </a>
 
@@ -40,7 +45,7 @@
   <section class="container blog-grid" aria-label="Blog posts">
     <article class="post-card">
       <a class="thumb" href="#">
-        <img src="creative-2.jpg" alt="Open Studio: Sketch &amp; Sip">
+        <img src="creative-2.jpg" alt="Open Studio: Sketch &amp; Sip" width="640" height="400" loading="lazy" decoding="async">
       </a>
       <div class="post-meta">
         <span class="tiny muted">Events</span>
@@ -51,7 +56,7 @@
 
     <article class="post-card">
       <a class="thumb" href="#">
-        <img src="totebag1.jpg" alt="Sewing 101: Tote Workshop">
+        <img src="totebag1.jpg" alt="Sewing 101: Tote Workshop" width="640" height="400" loading="lazy" decoding="async">
       </a>
       <div class="post-meta">
         <span class="tiny muted">Workshops</span>
@@ -62,7 +67,7 @@
 
     <article class="post-card">
       <a class="thumb" href="#">
-        <img src="creative-4.jpg" alt="Creative Photoshoot Day">
+        <img src="creative-4.jpg" alt="Creative Photoshoot Day" width="640" height="400" loading="lazy" decoding="async">
       </a>
       <div class="post-meta">
         <span class="tiny muted">Community</span>
@@ -74,9 +79,9 @@
 
   <section class="image-strip">
     <div class="container strip">
-      <img src="sip-and-paint-1.png" alt="Creative">
-      <img src="sketch-1.png" alt="Creative">
-      <img src="product-design-1.png" alt="Creative">
+      <img src="sip-and-paint-1.png" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
+      <img src="sketch-1.png" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
+      <img src="product-design-1.png" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
     </div>
   </section>
 </main>
@@ -109,3 +114,4 @@
 <script src="scripts.js"></script>
 </body>
 </html>
+
