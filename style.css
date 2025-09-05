@@ -278,3 +278,65 @@ footer.site-footer, .site-footer{
 
 /* ---------- Non-home heading tint (unchanged) ---------- */
 body:not(.home) h1, body:not(.home) h2, body:not(.home) h3{ color:var(--sa-green); }
+
+/* ===========================================
+   REVERT: Page-specific solid HERO colors
+   (Place at the very end of your CSS)
+   =========================================== */
+body.home .hero,
+body.home .page-hero{
+  background-color: var(--sa-blue) !important;
+  background-image: none !important;
+  background: var(--sa-blue) !important;
+}
+
+body.about .hero,
+body.about .page-hero{
+  background-color: var(--sa-green) !important;
+  background-image: none !important;
+  background: var(--sa-green) !important;
+}
+
+body.programs .hero,
+body.programs .page-hero{
+  background-color: var(--sa-red) !important;
+  background-image: none !important;
+  background: var(--sa-red) !important;
+}
+
+body.contact .hero,
+body.contact .page-hero{
+  background-color: var(--sa-gold) !important;
+  background-image: none !important;
+  background: var(--sa-gold) !important;
+}
+
+body.blog .hero,
+body.blog .page-hero{
+  background-color: var(--sa-green) !important;
+  background-image: none !important;
+  background: var(--sa-green) !important;
+}
+
+/* If any pseudo-element overlays exist, keep them off */
+.hero::before,
+.page-hero::before{
+  content: none !important;
+  display: none !important;
+}
+
+/* Optional: lock hero text exactly as before */
+.hero .display{
+  color:#ffffff !important;
+  text-shadow: 0 2px 18px rgba(0,0,0,.25) !important;
+}
+.hero .lead{
+  color:#ffffff !important;
+  text-shadow: 0 1px 12px rgba(0,0,0,.25) !important;
+}
+.page-hero h1,
+.page-hero .lead{
+  color:#ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.28) !important;
+}
+
