@@ -162,31 +162,30 @@ if (form) {
       if (resp.ok) {
         form.reset();
         if (status) status.textContent = 'Thanks! We’ll be in touch shortly.';
-      } else {
-        // Try JSON first (Formspree returns { errors: [...] } when possible)
-        let msg = `Error ${resp.status}`;
-        try {
-          const data = await resp.json();
-          if (data && data.errors) {
-            msg += ': ' + data.errors.map(e => e.message).join(', ');
-          } else {
-            const text = await resp.text();
-            if (text) msg += ` — ${text}`;
-          }
-        } catch {
-          const text = await resp.text();
-          if (text) msg += ` — ${text}`;
-        }
-        if (status) status.textContent = msg;
-        console.error('Formspree error:', msg);
+        return;
       }
+
+      // Read the body exactly once
+      const ct = resp.headers.get('content-type') || '';
+      let msg = `Error ${resp.status}`;
+      if (ct.includes('application/json')) {
+        const data = await resp.json();
+        if (data && data.errors) {
+          msg += ': ' + data.errors.map(e => e.message).join(', ');
+        }
+      } else {
+        msg += ' — ' + (await resp.text());
+      }
+      if (status) status.textContent = msg;
+
     } catch (err) {
-      if (status) status.textContent = `Network error: ${err.message}`;
+      if (status) status.textContent = `Network error. Please try again.`;
       console.error(err);
     }
   });
 }
 </script>
+
 
   
 </body>
