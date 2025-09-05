@@ -1064,3 +1064,46 @@ footer.site-footer,
     grid-template-columns: repeat(2, minmax(0,1fr)) !important;
   }
 }
+
+/* ===== SPEED-UP: Slider backgrounds via image-set (webp first, 1x/2x) ===== */
+.hero-slider .slides .slide:nth-child(1){
+  background:
+    linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+    image-set(
+      url('sketch-hand.webp') type('image/webp') 1x,
+      url('sketch-hand@2x.webp') type('image/webp') 2x,
+      url('sketch-hand.jpg') type('image/jpeg') 1x,
+      url('sketch-hand@2x.jpg') type('image/jpeg') 2x
+    ) center/cover no-repeat !important;
+}
+.hero-slider .slides .slide:nth-child(2){
+  background:
+    linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+    image-set(
+      url('block-print.webp') type('image/webp') 1x,
+      url('block-print@2x.webp') type('image/webp') 2x,
+      url('block-print.jpg') type('image/jpeg') 1x,
+      url('block-print@2x.jpg') type('image/jpeg') 2x
+    ) center/cover no-repeat !important;
+}
+.hero-slider .slides .slide:nth-child(3){
+  background:
+    linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+    image-set(
+      url('sewing-machine.webp') type('image/webp') 1x,
+      url('sewing-machine@2x.webp') type('image/webp') 2x,
+      url('sewing-machine.jpg') type('image/jpeg') 1x,
+      url('sewing-machine@2x.jpg') type('image/jpeg') 2x
+    ) center/cover no-repeat !important;
+}
+.hero-slider .slides .slide:nth-child(4){
+  background:
+    linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+    image-set(
+      url('sketch-to-runway.webp') type('image/webp') 1x,
+      url('sketch-to-runway@2x.webp') type('image/webp') 2x,
+      url('sketch-to-runway.jpg') type('image/jpeg') 1x,
+      url('sketch-to-runway@2x.jpg') type('image/jpeg') 2x
+    ) center/cover no-repeat !important;
+}
+
