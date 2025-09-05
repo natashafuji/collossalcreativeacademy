@@ -300,19 +300,19 @@ body.blog .hero, body.blog .page-hero, body.blog .page-hero.gradient{
 .hero-slider .slides .slide{ background-blend-mode: normal; }
 .hero-slider .slides .slide:nth-child(1){
   background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('images/gallery/sketch-hand.jpg') center/cover no-repeat !important;
+              url('sketch-hand.jpg') center/cover no-repeat !important;
 }
 .hero-slider .slides .slide:nth-child(2){
   background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('images/gallery/block-print.jpg') center/cover no-repeat !important;
+              url('block-print.jpg') center/cover no-repeat !important;
 }
 .hero-slider .slides .slide:nth-child(3){
   background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('images/gallery/sewing-machine.jpg') center/cover no-repeat !important;
+              url('sewing-machine.jpg') center/cover no-repeat !important;
 }
 .hero-slider .slides .slide:nth-child(4){
   background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('images/gallery/sketch-to-runway.jpg') center/cover no-repeat !important;
+              url('sketch-to-runway.jpg') center/cover no-repeat !important;
 }
 
 /* === HOME tweaks === */
