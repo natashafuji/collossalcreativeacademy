@@ -46,62 +46,56 @@
   </section>
 
   <section class="container form-wrap">
-  <form class="card form" id="contactForm"
-        action="https://formspree.io/f/xeolpvdj"
-        method="POST" accept-charset="UTF-8">
-    <div class="grid-2">
-      <div class="field">
-        <label for="name">Full Name</label>
-        <input id="name" name="name" type="text" required>
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-      </div>
-      <div class="field">
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" placeholder="+27 ...">
-      </div>
-      <div class="field">
-        <label for="program">Interested Program</label>
-        <select id="program" name="program" required>
-          <option value="">Select...</option>
-          <option>Sketching & Drawing</option>
-          <option>Fabric & Canvas Painting</option>
-          <option>Sewing & Product Design</option>
-          <option>Market-Ready Marketing</option>
-          <option>Beauty &amp; Makeup</option>
-          <option>Natural Skincare Formulation</option>
+  <form action="https://formspree.io/f/xeolpvdj" method="POST">
+  <div class="grid-2">
+    <div class="field">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" placeholder="+27 ..." >
+    </div>
+    <div class="field">
+      <label for="program">Interested Program</label>
+      <select id="program" name="program" required>
+        <option value="">Select...</option>
+        <option>Sketching & Drawing</option>
+        <option>Fabric & Canvas Painting</option>
+        <option>Sewing & Product Design</option>
+        <option>Market-Ready Marketing</option>
+        <option>Beauty &amp; Makeup</option>
+        <option>Natural Skincare Formulation</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="goals">Your Goals</label>
+    <textarea id="goals" name="goals" rows="5"
+      placeholder="Tell us what you want to create and sell..."></textarea>
+  </div>
+
+  <!-- optional -->
+  <input type="hidden" name="_subject" value="CCA Contact Form">
+  <input type="hidden" name="form_name" value="Contact & Enrollment">
+  <input type="hidden" name="page" value="contact.html">
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+         style="position:absolute; left:-9999px" aria-hidden="true">
+
+  <button class="btn btn-gold" type="submit">Send Inquiry</button>
+</form>
+
         </select>
       </div>
     </div>
 
     <div class="field">
-      <label for="goals">Your Goals</label>
-      <textarea id="goals" name="goals" rows="5"
-        placeholder="Tell us what you want to create and sell..."></textarea>
-    </div>
-
-    <div class="agree">
-      <label><input type="checkbox" name="consent" value="yes" required>
-        I consent to be contacted about my inquiry.</label>
-    </div>
-
-    <!-- optional honeypot -->
-    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
-           style="position:absolute; left:-9999px" aria-hidden="true">
-
-    <!-- optional metadata -->
-    <input type="hidden" name="form_name" value="Contact & Enrollment">
-    <input type="hidden" name="page" value="contact.html">
-
-    <button class="btn btn-gold" type="submit">Send Inquiry</button>
-    <p class="tiny muted">Prefer email? Write to
-      <a href="mailto:info@collossalcreativeacademy.co.za">info@collossalcreativeacademy.co.za</a></p>
-
-    <!-- live status line -->
-    <p id="form-status" class="tiny muted" aria-live="polite"></p>
-  </form>
+     
 </section>
 
 
