@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Collossal Creative Academy — a bold, Creator-led hub for art, sewing, and marketing skills that turn creativity into income.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Preload the first slider image (improves above-the-fold paint) -->
+<link rel="preload" as="image" href="sketch-hand.jpg">
+
 <link rel="stylesheet" href="style.css">
 <title>Collossal Creative Academy</title>
 </head>
@@ -12,7 +16,12 @@
 <header class="site-header" role="banner" aria-label="Primary">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Home">
-      <img class="logo-img" src="logo-icon-only.png" srcset="logo-icon-only.png 1x, logo-icon-only@2x.png 2x" alt="Collossal Creative Academy logo" width="96" height="64">
+      <img class="logo-img"
+           src="logo-icon-only.png"
+           srcset="logo-icon-only.png 1x, logo-icon-only@2x.png 2x"
+           alt="Collossal Creative Academy logo"
+           width="96" height="64"
+           fetchpriority="high" decoding="async">
       <span class="brand-text"><span class="brand-name">Collossal</span> <span class="brand-sub">Creative Academy</span></span>
     </a>
 
@@ -82,7 +91,8 @@
       </div>
       <div class="event-grid">
         <article class="event-card">
-          <div class="event-media" style="--bg:url('creative-4.jpg')">
+          <div class="event-media">
+            <img src="creative-4.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
             <!-- Price insert <span class="badge"></span>-->
           </div>
           <div class="event-body">
@@ -92,7 +102,8 @@
         </article>
 
         <article class="event-card">
-          <div class="event-media" style="--bg:url('creative-2.jpg')">
+          <div class="event-media">
+            <img src="creative-2.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
             <!-- Price insert <span class="badge"></span>-->
           </div>
           <div class="event-body">
@@ -102,7 +113,8 @@
         </article>
 
         <article class="event-card">
-          <div class="event-media" style="--bg:url('totebag1.jpg')">
+          <div class="event-media">
+            <img src="totebag1.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
             <!-- Price insert <span class="badge"></span>-->
           </div>
           <div class="event-body">
@@ -152,9 +164,9 @@
 
   <section class="image-strip">
     <div class="container strip">
-      <img src="natural-skincare-1.png" alt="Creative">
-      <img src="silk-scissors.jpg" alt="Creative">
-      <img src="creative-1.jpg" alt="Creative">
+      <img src="natural-skincare-1.png" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
+      <img src="silk-scissors.jpg" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
+      <img src="creative-1.jpg" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
     </div>
   </section>
 </main>
