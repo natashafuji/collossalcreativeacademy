@@ -45,11 +45,10 @@
     </div>
   </section>
 
-  
 <section class="container form-wrap">
   <form class="card form" id="contactForm"
         action="https://formspree.io/f/xeolpvdj"
-        method="POST" accept-charset="UTF-8">
+        method="POST">
     <div class="grid-2">
       <div class="field">
         <label for="name">Full Name</label>
@@ -83,10 +82,14 @@
         placeholder="Tell us what you want to create and sell..."></textarea>
     </div>
 
-    <!-- optional extras -->
+    <!-- Optional but useful -->
     <input type="hidden" name="_subject" value="CCA Contact Form">
     <input type="hidden" name="form_name" value="Contact & Enrollment">
     <input type="hidden" name="page" value="contact.html">
+    <!-- Add a redirect page if you want Formspree (no-JS) success redirect -->
+    <!-- <input type="hidden" name="_redirect" value="/thank-you.html"> -->
+
+    <!-- Honeypot -->
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
            style="position:absolute; left:-9999px" aria-hidden="true">
 
@@ -94,6 +97,7 @@
     <p id="form-status" class="tiny muted" aria-live="polite"></p>
   </form>
 </section>
+  
 
 
 
@@ -141,43 +145,49 @@
 
 <script>
 const form = document.getElementById('contactForm');
+const status = document.getElementById('form-status');
 
-form.addEventListener('submit', async (e) => {
-  // Prevent default navigation
-  e.preventDefault();
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (status) status.textContent = 'Sending…';
 
-  // Optional: show a sending state
-  let status = document.getElementById('form-status');
-  if (!status) {
-    status = document.createElement('p');
-    status.id = 'form-status';
-    status.className = 'tiny muted';
-    form.appendChild(status);
-  }
-  status.textContent = 'Sending…';
+    try {
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
 
-  try {
-    const data = new FormData(form);
-    const resp = await fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (resp.ok) {
-      form.reset();
-      status.textContent = 'Thanks! We’ll be in touch shortly.';
-    } else {
-      const result = await resp.json().catch(() => ({}));
-      status.textContent = result.errors
-        ? result.errors.map(e => e.message).join(', ')
-        : 'Oops! There was a problem submitting your form.';
+      if (resp.ok) {
+        form.reset();
+        if (status) status.textContent = 'Thanks! We’ll be in touch shortly.';
+      } else {
+        // Try JSON first (Formspree returns { errors: [...] } when possible)
+        let msg = `Error ${resp.status}`;
+        try {
+          const data = await resp.json();
+          if (data && data.errors) {
+            msg += ': ' + data.errors.map(e => e.message).join(', ');
+          } else {
+            const text = await resp.text();
+            if (text) msg += ` — ${text}`;
+          }
+        } catch {
+          const text = await resp.text();
+          if (text) msg += ` — ${text}`;
+        }
+        if (status) status.textContent = msg;
+        console.error('Formspree error:', msg);
+      }
+    } catch (err) {
+      if (status) status.textContent = `Network error: ${err.message}`;
+      console.error(err);
     }
-  } catch (err) {
-    status.textContent = 'Network error. Please try again.';
-  }
-});
+  });
+}
 </script>
+
   
 </body>
 </html>
