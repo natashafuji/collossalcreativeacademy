@@ -1,14 +1,3 @@
-/* =========================================================
-   SouthAtlantic — Copy-Paste CSS (trimmed to your 6 asks)
-   1) Keep slider background-image rules
-   2) Add header height for mobile
-   3) Mobile dropdown = SIDE PANEL
-   4) Footer = WHITE
-   5) Image strip = keep 3 across on mobile
-   6) Duplicates trimmed; nothing else changed
-   ========================================================= */
-
-/* ---------- Theme Tokens ---------- */
 :root{
   --sa-green:#007A4D;
   --sa-blue:#002395;
@@ -21,10 +10,8 @@
   --muted:#6b7280;
   --radius:18px;
   --shadow:0 10px 30px rgba(0,0,0,.08);
-  --header-height:64px; /* mobile header height */
 }
 
-/* ---------- Base ---------- */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
@@ -33,10 +20,10 @@ body{
   background:var(--bg);
   line-height:1.6;
 }
+
 .container{width:min(1100px,92%);margin-inline:auto}
 
-/* ---------- Type helpers ---------- */
-.display{font-family:Montserrat, Poppins, sans-serif; font-size:clamp(2rem,4vw,3.4rem); line-height:1.1; margin:0 0 .6rem}
+.display{font-family:Montserrat, Poppins, sans-serif; font-size: clamp(2rem, 4vw, 3.4rem); line-height:1.1; margin:0 0 .6rem}
 .lead{font-size:clamp(1rem,1.4vw,1.2rem); color:var(--ink); opacity:.9}
 .tiny{font-size:.8rem}
 .small{font-size:.9rem}
@@ -44,113 +31,81 @@ body{
 .accent{color:var(--sa-blue)}
 .accent-2{color:var(--sa-green)}
 
-/* ---------- Header / Nav ---------- */
 .site-header{
-  position:sticky; top:0; z-index:5000;
-  background:linear-gradient(180deg,#ffffffcc,#fbfdffcc);
-  backdrop-filter:saturate(140%) blur(10px);
-  -webkit-backdrop-filter:saturate(140%) blur(10px);
-  border-bottom:1px solid #e6eef9;
-  box-shadow:var(--shadow);
-  min-height:var(--header-height); /* (2) header height for mobile/overall */
+  position:sticky; top:0; z-index:1000;
+  background:linear-gradient(90deg,var(--sa-green),var(--sa-blue));
+  color:#fff; box-shadow:var(--shadow);
 }
-.header-inner{display:flex; align-items:center; justify-content:space-between; padding:.6rem 0; position:relative; min-height:var(--header-height)}
-.brand{display:flex; align-items:center; gap:.8rem; color:var(--sa-blue); text-decoration:none; font-weight:700; letter-spacing:.3px}
-.logo-placeholder{width:60px; height:40px; background:#00239512; border:2px dashed #00239522; border-radius:10px}
-.brand-text{font-family:Montserrat, Poppins, sans-serif; color:var(--sa-blue); font-weight:700}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:.6rem 0}
+.brand{display:flex; align-items:center; gap:.8rem; color:#fff; text-decoration:none; font-weight:700; letter-spacing:.3px}
+.logo-placeholder{width:60px; height:40px; background:#fff2; border:2px dashed #fff8; border-radius:10px}
+.brand-text{font-family:Montserrat, Poppins, sans-serif}
 
 .nav{display:flex; align-items:center; gap:1rem}
-.nav a{color:var(--sa-blue); text-decoration:none; font-weight:600; padding:.5rem .8rem; border-radius:999px}
-.nav a:hover{background:#00239512}
+.nav a{color:#fff; text-decoration:none; font-weight:600; padding:.5rem .8rem; border-radius:999px}
+.nav a:hover{background:#ffffff22}
 
-/* Hamburger */
-.hamburger{display:none; background:none; border:0; width:44px; height:44px; border-radius:12px; position:absolute; right:8px; top:50%; transform:translateY(-50%); z-index:6000; cursor:pointer}
-.hamburger span{position:absolute; left:10px; right:10px; height:2px; background:var(--sa-blue); border-radius:2px; transition:.25s}
+.hamburger{display:none; background:none; border:0; width:44px; height:44px; border-radius:12px; position:relative}
+.hamburger span{position:absolute; left:10px; right:10px; height:2px; background:#fff; border-radius:2px; transition:.25s}
 .hamburger span:nth-child(1){top:14px}
 .hamburger span:nth-child(2){top:21px}
 .hamburger span:nth-child(3){top:28px}
 
-/* (3) Mobile dropdown = SIDE PANEL (right) */
 @media (max-width:860px){
   .hamburger{display:block}
-  .nav{
-    position:fixed !important;
-    top:var(--header-height) !important;
-    right:12px !important;
-    left:auto !important;
-    width:min(300px,85vw) !important;
-    max-height:70vh !important;
-    overflow:auto !important;
-    display:none !important;
-    flex-direction:column !important;
-    gap:.2rem !important;
-    padding:.8rem 1rem 1rem !important;
-    background:#ffffff !important;
-    border:1px solid var(--sa-blue) !important;
-    border-radius:14px !important;
-    box-shadow:0 20px 40px rgba(0,0,0,.12) !important;
-    z-index:5900 !important;
-  }
-  .nav.open{display:flex !important}
-  .nav a{display:block !important; padding:.65rem .8rem !important; white-space:nowrap !important; background:transparent !important}
+  .nav{position:fixed; inset:64px 0 auto 0; background:linear-gradient(180deg,var(--sa-blue),var(--sa-green)); padding:1rem; display:none; flex-direction:column}
+  .nav.open{display:flex}
 }
 
-/* ---------- Buttons ---------- */
-.btn{display:inline-block; padding:.8rem 1.1rem; border-radius:999px; text-decoration:none; font-weight:700; border:2px solid transparent; transition:background-color .2s,color .2s,filter .2s,box-shadow .2s,transform .2s; cursor:pointer}
-.btn-primary,.btn.btn-primary,
-.btn-gold,.btn.btn-gold{background:var(--sa-gold); border-color:var(--sa-gold); color:var(--sa-blue)}
+.btn{display:inline-block; padding:.8rem 1.1rem; border-radius:999px; text-decoration:none; font-weight:700; border:2px solid transparent; transition:.2s}
+.btn-primary{background:var(--sa-blue); color:#fff}
+.btn-primary:hover{filter:brightness(.95)}
 .btn-outline{background:transparent; color:var(--sa-blue); border-color:var(--sa-blue)}
 .btn-outline:hover{background:#00000008}
-.btn-primary:hover,.btn.btn-primary:hover,
-.btn-gold:hover,.btn.btn-gold:hover{filter:brightness(.94); box-shadow:0 8px 20px rgba(0,0,0,.08); transform:translateY(-1px)}
-.nav a.btn:hover{background:var(--sa-gold); color:var(--sa-blue); filter:brightness(.94); box-shadow:0 8px 20px rgba(0,0,0,.08); transform:translateY(-1px)}
-.btn:focus-visible{outline:3px solid #00239555; outline-offset:2px}
-.btn:active{transform:translateY(0)}
+.btn-gold{background:var(--sa-gold); color:#111}
+.btn-gold:hover{filter:brightness(.98)}
 
-/* ---------- Hero ---------- */
-.hero{padding:2.2rem 0 2.6rem; color:#111; border-bottom-left-radius:14px; border-bottom-right-radius:14px}
-.hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center}
-.hero .display{color:#ffffff; text-shadow:0 2px 18px rgba(0,0,0,.25)}
-.hero .lead{color:#ffffff; text-shadow:0 1px 12px rgba(0,0,0,.25)}
-@media (max-width:900px){ .hero-inner{grid-template-columns:1fr} }
+.hero{padding:2.2rem 0 2.6rem; background:
+  radial-gradient(1200px 500px at -10% -20%, #ffffffbb, #ffffff00 60%),
+  linear-gradient(120deg, #fff, #fff, #fff, #fff0 70%), 
+  linear-gradient(100deg, var(--sa-gold) 0%, var(--sa-green) 40%, var(--sa-blue) 70%, var(--sa-red) 100%);
+  color:#111;
+}
+.hero-inner{display:grid; grid-template-columns: 1.1fr .9fr; gap:2rem; align-items:center}
 .hero-text .cta-row{margin-top:1rem; display:flex; gap:.8rem; flex-wrap:wrap}
 
-/* ---------- Slider (1) keep background-image rules) ---------- */
 .hero-slider{background:#ffffffee; border-radius:var(--radius); box-shadow:var(--shadow); padding:1rem; overflow:hidden}
 .slides{display:flex; gap:1rem; translate:0 0; transition:transform .6s ease}
-.slide{min-width:260px; flex:1 0 100%; display:grid; place-items:center; height:260px; border-radius:var(--radius); background-blend-mode:normal}
+.slide{min-width:260px; flex:1 0 100%; display:grid; place-items:center; height:260px;
+  background-image: linear-gradient(135deg, #f8fafc, #eef2ff);
+  border-radius:var(--radius);
+}
 .slide-card{width:90%; background:#fff; border-radius:16px; padding:1rem; box-shadow:var(--shadow); text-align:center}
 .slider-dots{display:flex; gap:.4rem; justify-content:center; margin-top:.7rem}
 .slider-dots button{width:8px;height:8px;border-radius:999px;border:0;background:#cbd5e1}
 .slider-dots button.active{background:var(--sa-blue)}
-/* Slide backgrounds (root paths) */
-.hero-slider .slides .slide:nth-child(1){
-  background-image:linear-gradient(135deg,rgba(248,250,252,.28),rgba(238,242,255,.28)), url('/sketch-hand.jpg') !important;
-  background-position:center !important; background-size:cover !important; background-repeat:no-repeat !important;
-}
-.hero-slider .slides .slide:nth-child(2){
-  background-image:linear-gradient(135deg,rgba(248,250,252,.28),rgba(238,242,255,.28)), url('/block-print.jpg') !important;
-  background-position:center !important; background-size:cover !important; background-repeat:no-repeat !important;
-}
-.hero-slider .slides .slide:nth-child(3){
-  background-image:linear-gradient(135deg,rgba(248,250,252,.28),rgba(238,242,255,.28)), url('/sewing-machine.jpg') !important;
-  background-position:center !important; background-size:cover !important; background-repeat:no-repeat !important;
-}
-.hero-slider .slides .slide:nth-child(4){
-  background-image:linear-gradient(135deg,rgba(248,250,252,.28),rgba(238,242,255,.28)), url('/sketch-to-runway.jpg') !important;
-  background-position:center !important; background-size:cover !important; background-repeat:no-repeat !important;
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
 }
 
-/* ---------- Sections / Cards ---------- */
 .pillars{padding:2.2rem 0}
 .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:1rem}
 @media (max-width:900px){ .grid-4{grid-template-columns:repeat(2,1fr)} }
 .pillar{background:var(--card); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow)}
 
-.pathway{padding:2.4rem 0; background:linear-gradient(180deg,#fff,#f7fafc)}
+.pathway{padding:2.4rem 0; background:linear-gradient(180deg,#fff, #f7fafc)}
 .steps{display:flex; gap:1rem; flex-wrap:wrap; list-style:none; padding:0; margin:1rem 0 1.4rem}
 .steps li{background:var(--card); border-radius:999px; padding:.6rem 1rem; box-shadow:var(--shadow); font-weight:600}
 .steps li span{background:var(--sa-blue); color:#fff; border-radius:50%; width:26px; height:26px; display:inline-grid; place-items:center; margin-right:.5rem}
+
+.page-hero{padding:2.2rem 0; color:#fff}
+.page-hero.gradient{background:linear-gradient(120deg,var(--sa-blue),var(--sa-green))}
+.page-hero.stripes{background:
+  repeating-linear-gradient(135deg, var(--sa-green) 0 40px, var(--sa-green) 0 40px, var(--sa-blue) 40px 80px, var(--sa-gold) 80px 110px, var(--sa-red) 110px 140px);
+  opacity:.96;
+}
+.page-hero .lead{color:#f0f9ff}
 
 .two-col{display:grid; grid-template-columns:1.2fr .8fr; gap:1.4rem; align-items:start; padding:2rem 0}
 @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
@@ -158,116 +113,12 @@ body{
 .blockquote{background:#fff; padding:1rem; border-left:6px solid var(--sa-gold); border-radius:10px; box-shadow:var(--shadow)}
 
 .card{background:var(--card); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow)}
-.card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; padding:2rem 0}
-@media (max-width:1100px){ .card-grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:640px){ .card-grid{grid-template-columns:1fr} }
-.card-tag{display:inline-block; background:#00000010; padding:.25rem .5rem; border-radius:999px; font-size:.8rem; font-weight:700}
-.program h3{margin:.3rem 0}
+.check{padding-left:1.2rem}
+.check li{margin:.4rem 0}
 
-/* Program cards: uniform sizing */
-.card.program{display:flex; flex-direction:column; min-height:560px}
-.card.program h3{min-height:56px; display:flex; align-items:flex-end; margin:.3rem 0 .2rem}
-.card.program .program-hero{
-  height:200px; border-radius:14px; margin:.4rem 0 .9rem;
-  background:linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.18)), var(--img) center/cover no-repeat;
-  box-shadow:var(--shadow);
-}
-.card.program .simple{margin-top:auto}
-@media (max-width:640px){
-  .card.program{min-height:520px}
-  .card.program .program-hero{height:180px}
-}
-
-/* Programs page overrides */
-.programs .card-grid{grid-template-columns:repeat(3,1fr); align-items:stretch}
-.programs .card.program{height:620px}
-.programs .card.program .program-hero{height:220px}
-@media (max-width:1100px){ .programs .card-grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:640px){
-  .programs .card-grid{grid-template-columns:1fr}
-  .programs .card.program{height:560px}
-  .programs .card.program .program-hero{height:200px}
-}
-
-/* ---------- Blog + Events ---------- */
-.blog-grid{padding:2rem 0 3rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
-@media (max-width:1100px){ .blog-grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:680px){ .blog-grid{grid-template-columns:1fr} }
-.post-card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
-.post-card .thumb{display:block; aspect-ratio:16/10; background:#eef; overflow:hidden}
-.post-card img{width:100%; height:100%; object-fit:cover; display:block}
-.post-meta{padding:1rem}
-.post-meta h3{margin:.2rem 0}
-.post-meta h3 a{color:inherit; text-decoration:none}
-.post-meta h3 a:hover{color:var(--sa-blue)}
-
-.events{padding:1.6rem 0 2rem}
-.events-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:.8rem}
-.event-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
-@media (max-width:1100px){ .event-grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:680px){ .event-grid{grid-template-columns:1fr} }
-.event-card{background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
-.event-media{
-  position:relative; aspect-ratio:16/9;
-  background:linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.18)), var(--bg) center/cover no-repeat;
-}
-.event-media .badge{position:absolute; left:.8rem; bottom:.8rem; background:#fff; color:#111; border-radius:999px; padding:.35rem .6rem; font-weight:700; box-shadow:var(--shadow)}
-.event-body{padding:.8rem 1rem}
-.event-body h3{margin:.2rem 0}
-
-/* ---------- Image Strip (5) keep 3 across on mobile) ---------- */
-.image-strip{padding:1.2rem 0 1.6rem}
-.image-strip .strip{display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem}
-.image-strip .strip img{width:100%; aspect-ratio:2/3; height:auto; object-fit:cover; border-radius:16px; box-shadow:var(--shadow)}
-@media (max-width:860px){
-  .image-strip .strip{grid-template-columns:repeat(3,1fr) !important;} /* keep 3 on mobile */
-}
-
-/* ---------- Forms ---------- */
-.form-wrap{padding:2rem 0 3rem}
-.form .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
-@media (max-width:780px){ .form .grid-2{grid-template-columns:1fr} }
-.field{display:flex; flex-direction:column; gap:.35rem}
-input,select,textarea{padding:.8rem; border-radius:12px; border:1px solid #e2e8f0; outline:none; font:inherit; background:#fff}
-input:focus,select:focus,textarea:focus{border-color:var(--sa-blue); box-shadow:0 0 0 3px #00239522}
-.agree{margin:.6rem 0}
-
-/* ---------- Footer (4) WHITE footer) ---------- */
-footer.site-footer, .site-footer{
-  background:#ffffff !important;
-  color:var(--sa-blue) !important;
-  padding:.8rem 0 1rem !important;
-  border-top-left-radius:18px; border-top-right-radius:18px;
-  box-shadow:0 -10px 30px rgba(0,0,0,.06);
-  position:relative;
-}
-.site-footer::before{
-  content:""; position:absolute; inset:0 0 auto 0; height:6px;
-  background:var(--sa-blue); border-top-left-radius:18px; border-top-right-radius:18px;
-}
-.site-footer h1,.site-footer h2,.site-footer h3,.site-footer h4,
-.site-footer p,.site-footer li,.site-footer .small,.site-footer .tiny,.site-footer .tagline{
-  color:var(--sa-blue) !important; margin-top:.2rem;
-}
-.site-footer a{
-  color:var(--sa-green) !important; font-weight:700; text-decoration:none !important;
-  background-image:linear-gradient(currentColor,currentColor);
-  background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%;
-  transition:background-size .2s ease;
-}
-.site-footer a:hover,.site-footer a:focus{background-size:100% 2px}
-.footer-grid{
-  display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-  gap:.5rem !important; align-items:start;
-}
-.site-footer .container{padding-left:12px !important; padding-right:12px !important}
-.site-footer p,.site-footer li,.site-footer a,.site-footer .small,.site-footer .tiny{font-size:.85rem !important; line-height:1.25 !important}
-
-/* ---------- Palette (unchanged helpers) ---------- */
 .palette{padding:2rem 0 3rem}
 .swatches{display:grid; grid-template-columns:repeat(5,1fr); gap:.8rem}
-.swatch{aspect-ratio:5/4; border-radius:14px; display:grid; place-content:end start; padding:.6rem; color:#fff; font-weight:700; box-shadow:var(--shadow)}
+.swatch{aspect-ratio: 5/4; border-radius:14px; display:grid; place-content:end start; padding:.6rem; color:#fff; font-weight:700; box-shadow:var(--shadow)}
 .swatch span{font-size:.9rem}
 .swatch small{font-weight:600; opacity:.9}
 .swatch.green{background:var(--sa-green)}
@@ -276,67 +127,929 @@ footer.site-footer, .site-footer{
 .swatch.red{background:var(--sa-red)}
 .swatch.black{background:var(--black)}
 
-/* ---------- Non-home heading tint (unchanged) ---------- */
-body:not(.home) h1, body:not(.home) h2, body:not(.home) h3{ color:var(--sa-green); }
+.card-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; padding:2rem 0}
+@media (max-width:1100px){ .card-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .card-grid{grid-template-columns:1fr} }
+.card-tag{display:inline-block; background:#00000010; padding:.25rem .5rem; border-radius:999px; font-size:.8rem; font-weight:700}
+.program h3{margin:.3rem 0}
 
-/* ===========================================
-   REVERT: Page-specific solid HERO colors
-   (Place at the very end of your CSS)
-   =========================================== */
-body.home .hero,
-body.home .page-hero{
-  background-color: var(--sa-blue) !important;
-  background-image: none !important;
-  background: var(--sa-blue) !important;
+.enroll-cta{padding:2rem 0 3rem; text-align:center}
+
+.form-wrap{padding:2rem 0 3rem}
+.form .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+@media (max-width:780px){ .form .grid-2{grid-template-columns:1fr} }
+.field{display:flex; flex-direction:column; gap:.35rem}
+input,select,textarea{
+  padding:.8rem; border-radius:12px; border:1px solid #e2e8f0; outline: none; font:inherit; background:#fff
+}
+input:focus,select:focus,textarea:focus{border-color:var(--sa-blue); box-shadow:0 0 0 3px #00239522}
+
+.agree{margin:.6rem 0}
+
+.site-footer{background:#0b1220; color:#cbd5e1; padding:1.4rem 0 1.8rem; margin-top:2rem}
+.site-footer h3,.site-footer h4{color:#fff}
+.footer-grid{display:grid; grid-template-columns:1.2fr .6fr .6fr; gap:1rem}
+@media (max-width:900px){ .footer-grid{grid-template-columns:1fr} }
+.tagline{font-weight:700}
+.tiny{font-size:.8rem}
+
+/* ==== Brand insertion ==== */
+:root{ --brand-blue: #002395; }
+.logo-img{height:46px; width:auto; display:block; border-radius:8px; background:transparent}
+.brand-text{color:var(--brand-blue); font-weight:700}
+.brand-text .brand-name{font-weight:700}
+.brand-text .brand-sub{font-weight:600; opacity:.95}
+
+:root{ --header-glass:#ffffffcc; --header-edge:#e6eef9; }
+.site-header{
+  background: linear-gradient(180deg, var(--header-glass), #fbfdffcc) !important;
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--header-edge);
+}
+.nav a{ color: var(--brand-blue) !important; }
+.nav a:hover{ background: #00239512 !important; }
+.hamburger span{ background: var(--brand-blue) !important; }
+
+@media (max-width:860px){
+  .nav{
+    background:#ffffffee !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,.08);
+  }
+  .nav a{ color: var(--brand-blue) !important; }
 }
 
-body.about .hero,
-body.about .page-hero{
-  background-color: var(--sa-green) !important;
-  background-image: none !important;
-  background: var(--sa-green) !important;
+/* subtle page header variants */
+.page-hero.stripes{
+  background:
+    radial-gradient(900px 380px at 20% -10%, #ffffff, #f5faff 60%),
+    linear-gradient(135deg,#f8fbff,#eef6ff) !important;
+  opacity: 1 !important;
+}
+.page-hero.gradient{
+  background: linear-gradient(135deg,#eef2ff,#f7fff7) !important;
+}
+.page-hero.warm{
+  background: linear-gradient(120deg,#FFFDF6,#FFF7E6), url('hero-about-warm.svg') center/cover no-repeat !important;
+}
+.page-hero.cool{
+  background: linear-gradient(120deg,#F4FBFF,#EAF8F5), url('hero-programs-cool.svg') center/cover no-repeat !important;
 }
 
-body.programs .hero,
-body.programs .page-hero{
-  background-color: var(--sa-red) !important;
-  background-image: none !important;
-  background: var(--sa-red) !important;
+/* real-photo heroes (kept) */
+.hero{
+  background: linear-gradient(0deg, rgba(0,0,0,.08), rgba(0,0,0,.08)),
+              image-set(url('hero-home.webp') type('image/webp'), url('hero-home.jpg') type('image/jpeg')) center/cover no-repeat !important;
+}
+.page-hero.warm{
+  background: linear-gradient(0deg, rgba(0,0,0,.12), rgba(0,0,0,.12)),
+              image-set(url('hero-about.webp') type('image/webp'), url('hero-about.jpg') type('image/jpeg')) center/cover no-repeat !important;
+}
+.page-hero.cool{
+  background: linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,.10)),
+              image-set(url('hero-programs.webp') type('image/webp'), url('hero-programs.jpg') type('image/jpeg')) center/cover no-repeat !important;
+}
+.page-hero.stripes{
+  background: linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,.10)),
+              image-set(url('hero-contact.webp') type('image/webp'), url('hero-contact.jpg') type('image/jpeg')) center/cover no-repeat !important;
 }
 
-body.contact .hero,
-body.contact .page-hero{
-  background-color: var(--sa-gold) !important;
-  background-image: none !important;
+/* soft rounded hero corners */
+.page-hero, .hero{
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+/* image strip */
+.image-strip{ padding: 1.2rem 0 1.6rem; }
+.image-strip .strip{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:.6rem;
+}
+.image-strip img{
+  width:100%; height:auto; display:block; border-radius:16px; 
+  box-shadow: var(--shadow);
+}
+@media (max-width:860px){
+  .image-strip .strip{ grid-template-columns:1fr; }
+}
+
+/* hero readability */
+.hero .display{ color:#ffffff !important; text-shadow: 0 2px 18px rgba(0,0,0,.25); }
+.hero .lead{ color:#ffffff !important; text-shadow: 0 1px 12px rgba(0,0,0,.25); }
+
+.slide.sewing-rotator{ position:relative; }
+.slide.sewing-rotator .slide-card{ background: rgba(255,255,255,.86); }
+
+/* headings on other pages green */
+body:not(.home) h1, body:not(.home) h2, body:not(.home) h3{ color: var(--sa-green); }
+
+/* page-hero text colour */
+.page-hero h1, .page-hero .lead{
+  color:#ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.28);
+}
+
+/* blog grid */
+.blog-grid{padding:2rem 0 3rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+@media (max-width:1100px){ .blog-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:680px){ .blog-grid{grid-template-columns:1fr} }
+.post-card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+.post-card .thumb{display:block; aspect-ratio: 16/10; background:#eef; overflow:hidden}
+.post-card img{width:100%; height:100%; object-fit:cover; display:block}
+.post-meta{padding:1rem}
+.post-meta h3{margin:.2rem 0 .2rem}
+.post-meta h3 a{color:inherit; text-decoration:none}
+.post-meta h3 a:hover{color:var(--sa-blue)}
+
+/* events */
+.events{padding:1.6rem 0 2rem}
+.events-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:.8rem}
+.event-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+@media (max-width:1100px){ .event-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:680px){ .event-grid{grid-template-columns:1fr} }
+.event-card{background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+.event-media{position:relative; aspect-ratio: 16/9; background: radial-gradient(80% 80% at 50% 30%, #ffffff66, transparent), #cbd5e1;
+  background: linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)), var(--bg) center/cover no-repeat;}
+.event-media .badge{position:absolute; left:.8rem; bottom:.8rem; background:#fff; color:#111; border-radius:999px; padding:.35rem .6rem; font-weight:700; box-shadow:var(--shadow)}
+.event-body{padding:.8rem 1rem}
+.event-body h3{margin:.2rem 0}
+
+/* unify image sizing */
+.image-strip .strip img{width:100%;height:220px;object-fit:cover;border-radius:16px}
+.image-strip .strip img{width:100%;height:220px;object-fit:cover;border-radius:16px}
+
+/* === FINAL, PAGE-SPECIFIC HERO COLOURS === */
+body.home .hero, body.home .page-hero{
+  background: none !important; background-color: var(--sa-blue) !important;
+}
+body.about .hero, body.about .page-hero, body.about .page-hero.warm{
+  background: none !important; background-color: var(--sa-green) !important;
+}
+body.programs .hero, body.programs .page-hero, body.programs .page-hero.cool{
+  background: none !important; background-color: var(--sa-red) !important;
+}
+body.contact .hero, body.contact .page-hero, body.contact .page-hero.stripes{
+  background: none !important; background-color: var(--sa-gold) !important;
+}
+body.blog .hero, body.blog .page-hero, body.blog .page-hero.gradient{
+  background: none !important; background-color: var(--sa-green) !important;
+}
+.hero::before, .page-hero::before{ content: none !important; display: none !important; }
+
+/* === HOME slider background photos === */
+.hero-slider .slides .slide{ background-blend-mode: normal; }
+.hero-slider .slides .slide:nth-child(1){
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+              url('sketch-hand.jpg') center/cover no-repeat !important;
+}
+.hero-slider .slides .slide:nth-child(2){
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+              url('block-print.jpg') center/cover no-repeat !important;
+}
+.hero-slider .slides .slide:nth-child(3){
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+              url('sewing-machine.jpg') center/cover no-repeat !important;
+}
+.hero-slider .slides .slide:nth-child(4){
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
+              url('sketch-to-runway.jpg') center/cover no-repeat !important;
+}
+
+/* === HOME tweaks === */
+body.home .hero .display .accent{ color: var(--sa-gold) !important; }
+body.home .pathway .btn-gold{ color: var(--sa-blue) !important; }
+
+/* =========================================================
+   NEW: Uniform CTA buttons across the whole website + RELIABLE HOVER
+   (Place these rules LAST so they win over earlier styles)
+   ========================================================= */
+.btn-primary, .btn.btn-primary,
+.btn-gold, .btn.btn-gold{
   background: var(--sa-gold) !important;
+  border-color: var(--sa-gold) !important;
+  color: var(--sa-blue) !important;
 }
 
-body.blog .hero,
-body.blog .page-hero{
-  background-color: var(--sa-green) !important;
-  background-image: none !important;
-  background: var(--sa-green) !important;
+/* smoother interaction */
+.btn{
+  transition: background-color .2s ease, color .2s ease,
+              filter .2s ease, box-shadow .2s ease, transform .2s ease;
+  cursor: pointer;
 }
 
-/* If any pseudo-element overlays exist, keep them off */
-.hero::before,
-.page-hero::before{
-  content: none !important;
-  display: none !important;
+/* visible hover for ALL CTAs */
+.btn-primary:hover, .btn.btn-primary:hover,
+.btn-gold:hover, .btn.btn-gold:hover{
+  background: var(--sa-gold) !important;
+  color: var(--sa-blue) !important;
+  filter: brightness(.94);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transform: translateY(-1px);
 }
 
-/* Optional: lock hero text exactly as before */
-.hero .display{
-  color:#ffffff !important;
-  text-shadow: 0 2px 18px rgba(0,0,0,.25) !important;
-}
-.hero .lead{
-  color:#ffffff !important;
-  text-shadow: 0 1px 12px rgba(0,0,0,.25) !important;
-}
-.page-hero h1,
-.page-hero .lead{
-  color:#ffffff !important;
-  text-shadow: 0 2px 12px rgba(0,0,0,.28) !important;
+/* ensure header nav buttons are not overridden by .nav a:hover */
+.nav a.btn:hover,
+.nav a.btn.btn-gold:hover,
+.nav a.btn.btn-primary:hover{
+  background: var(--sa-gold) !important;
+  color: var(--sa-blue) !important;
+  filter: brightness(.94);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transform: translateY(-1px);
 }
 
+/* ===== Brand Band Footer (Option A) ===== */
+.site-footer{
+  position: relative;
+  background: var(--sa-gold);
+  color: var(--sa-blue);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -10px 30px rgba(0,0,0,.06);
+  padding: 1.6rem 0 1.8rem;
+}
+
+/* Blue top stripe to echo the header */
+.site-footer::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0;
+  height:6px;
+  background: var(--sa-blue);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* Typography (blue) */
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer p,
+.site-footer li,
+.site-footer .small,
+.site-footer .tiny,
+.site-footer .tagline{
+  color: var(--sa-blue);
+  margin-top: .2rem;
+}
+
+/* Links (green) with tasteful underline on hover */
+.site-footer a{
+  color: var(--sa-green);
+  font-weight: 700;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size .2s ease;
+}
+.site-footer a:hover,
+.site-footer a:focus{
+  background-size: 100% 2px;
+}
+
+/* Grid stays as-is; just tighten lists */
+.site-footer .footer-grid ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Micro-footer/legal line */
+.site-footer .tiny{
+  border-top: 1px solid rgba(0,35,149,.14); /* subtle blue divider */
+  padding-top: .8rem;
+  opacity: .9;
+}
+
+/* crisp keyboard focus */
+.btn:focus-visible{ outline: 3px solid #00239555; outline-offset: 2px; }
+
+/* remove lift while pressed */
+.btn:active{ transform: translateY(0); }
+
+/* ===== Footer: force consistent colors on all pages (incl. Programs) ===== */
+.site-footer{
+  background: var(--sa-gold) !important;   /* yellow band */
+  color: var(--sa-blue) !important;        /* default text = blue */
+}
+
+/* Blue text everywhere in the footer */
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer p,
+.site-footer li,
+.site-footer .small,
+.site-footer .tiny,
+.site-footer .tagline{
+  color: var(--sa-blue) !important;
+}
+
+/* Green links (normal + visited) */
+.site-footer a,
+.site-footer a:link,
+.site-footer a:visited{
+  color: var(--sa-green) !important;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size .2s ease;
+}
+
+/* Green links on hover/focus + underline grow */
+.site-footer a:hover,
+.site-footer a:focus{
+  color: var(--sa-green) !important;
+  background-size: 100% 2px;
+}
+
+/* If any page adds extra specificity (like .programs …), beat it */
+body.programs .site-footer a{
+  color: var(--sa-green) !important;
+}
+
+/* keep the thin blue top stripe if you’re using it */
+.site-footer::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0;
+  height:6px;
+  background: var(--sa-blue);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* ===== Ensure Programs page footer heading/text are BLUE on YELLOW ===== */
+body.programs footer.site-footer,
+body.programs .site-footer {
+  background: var(--sa-gold) !important;
+  color: var(--sa-blue) !important;
+}
+
+body.programs footer.site-footer h1,
+body.programs footer.site-footer h2,
+body.programs footer.site-footer h3,
+body.programs footer.site-footer h4,
+body.programs footer.site-footer p,
+body.programs footer.site-footer li,
+body.programs footer.site-footer .small,
+body.programs footer.site-footer .tiny,
+body.programs footer.site-footer .tagline {
+  color: var(--sa-blue) !important;
+}
+
+/* Links in Programs footer stay GREEN */
+body.programs footer.site-footer a,
+body.programs footer.site-footer a:link,
+body.programs footer.site-footer a:visited {
+  color: var(--sa-green) !important;
+}
+
+/* ==== Footer: make Programs look identical + prevent double-underlines ==== */
+
+/* Uniform footer colors (all pages, including Programs) */
+.site-footer{
+  background: var(--sa-gold) !important;
+  color: var(--sa-blue) !important;
+}
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer p,
+.site-footer li,
+.site-footer .small,
+.site-footer .tiny,
+.site-footer .tagline{
+  color: var(--sa-blue) !important;
+}
+
+/* Single, animated underline only — kill native underline/borders in ALL states */
+.site-footer a,
+.site-footer a:link,
+.site-footer a:visited,
+.site-footer a:hover,
+.site-footer a:focus,
+.site-footer a:active{
+  color: var(--sa-green) !important;
+  text-decoration: none !important;     /* stop default underline */
+  border-bottom: none !important;        /* in case any theme adds this */
+  box-shadow: none !important;           /* prevent shadow-as-underline tricks */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size .2s ease;
+}
+
+/* Grow the single underline on hover/focus */
+.site-footer a:hover,
+.site-footer a:focus{
+  background-size: 100% 2px;
+}
+
+/* Keep the thin blue top stripe */
+.site-footer::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0;
+  height:6px;
+  background: var(--sa-blue);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* ===========================
+   UNIFORM PROGRAM CARD SIZING
+   =========================== */
+
+/* 3-up grid stays; cards become same height */
+.card-grid{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Equalize card height and spacing */
+.card.program{
+  display:flex;
+  flex-direction:column;
+  min-height: 560px;           /* same height for all cards */
+}
+
+/* Make headings line up vertically */
+.card.program h3{
+  min-height: 56px;            /* reserve space for 1–2 lines */
+  display:flex;
+  align-items:flex-end;
+  margin: .3rem 0 .2rem;
+}
+
+/* Keep the image banner identical across cards */
+.card.program .program-hero{
+  height: 200px;               /* same height so images start at same position */
+  border-radius: 14px;
+  margin: .4rem 0 .9rem;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)),
+    var(--img) center/cover no-repeat;
+  box-shadow: var(--shadow);
+}
+
+/* Push bullet list to the bottom so all cards balance */
+.card.program .simple{ margin-top:auto; }
+
+/* Tweak for smaller screens */
+@media (max-width: 900px){
+  .card-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .card-grid{ grid-template-columns: 1fr; }
+  .card.program{ min-height: 520px; }
+  .card.program .program-hero{ height: 180px; }
+}
+
+/* ==========================================
+   IMAGE STRIP — MATCH ATTACHED IMAGE (2:3)
+   ========================================== */
+
+/* Longer strip to show full boxes; keep three across on desktop */
+.image-strip{ padding: 1.2rem 0 1.6rem; }
+.image-strip .strip{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
+}
+
+/* Each box uses the attached photo’s portrait ratio (2:3), uniform size */
+.image-strip .strip img{
+  width: 100%;
+  aspect-ratio: 2 / 3;   /* attached image is 1024×1536 → 2:3 */
+  height: auto;
+  object-fit: cover;     /* fill box without distortion */
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* Single-column on mobile, boxes keep the same ratio */
+@media (max-width: 860px){
+  .image-strip .strip{ grid-template-columns: 1fr; }
+}
+
+/* ===============================
+   PROGRAMS PAGE — UNIFORM CARDS
+   =============================== */
+   .programs .card-grid{
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+  
+  .programs .card.program{
+    display:flex;
+    flex-direction:column;
+    height: 620px !important;          /* same height for every card */
+  }
+  
+  .programs .card.program h3{
+    min-height: 56px;                   /* headings line up */
+    display:flex;
+    align-items:flex-end;
+    margin: .3rem 0 .2rem;
+  }
+  
+  .programs .card.program .program-hero{
+    height: 220px !important;           /* override 150px in programs.html */
+    margin: .5rem 0 1rem !important;
+    border-radius: 14px !important;
+    background:
+      linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)),
+      var(--img) center/cover no-repeat !important;
+    box-shadow: var(--shadow) !important;
+  }
+  
+  /* push lists to the bottom so all cards balance */
+  .programs .card.program .simple{ margin-top:auto; }
+  
+  /* responsive grid */
+  @media (max-width:1100px){
+    .programs .card-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:640px){
+    .programs .card-grid{ grid-template-columns:1fr; }
+    .programs .card.program{ height:560px !important; }
+    .programs .card.program .program-hero{ height:200px !important; }
+  }
+  
+  /* ==========================================
+     PROGRAMS PAGE — IMAGE STRIP (PORTRAIT 2:3)
+     ========================================== */
+  .programs .image-strip .strip{
+    grid-template-columns: repeat(3, 1fr);
+    gap: .8rem;
+  }
+  
+  .programs .image-strip .strip img{
+    width:100% !important;
+    height:auto !important;            /* kill old fixed 220px */
+    aspect-ratio: 2 / 3 !important;    /* matches your attached photo */
+    object-fit:cover !important;
+    border-radius:16px !important;
+    box-shadow: var(--shadow);
+  }
+
+/* =============================================================
+   Mobile image-strip: keep 3 images in one row (no stacking)
+   2025-09-03
+   ============================================================= */
+@media (max-width: 860px){
+  .image-strip .strip{
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* =============================================================
+   Footer: white background only (match header) — 2025-09-03
+   ============================================================= */
+footer.site-footer{
+  background: #ffffff !important;
+}
+
+/* =============================================================
+   Mobile dropdown: compact side panel (override) — 2025-09-03
+   Ensures the mobile nav dropdown is a small side panel, not full page.
+   ============================================================= */
+@media (max-width: 860px){
+  /* Keep hamburger behavior as-is; just constrain the dropdown panel */
+  .nav{
+    position: fixed !important;
+    top: var(--header-height) !important;
+    right: 12px !important;
+    left: auto !important;           /* prevent full-width */
+    width: min(300px, 85vw) !important;
+    max-height: 70vh !important;
+    overflow: auto !important;
+    display: none;
+    flex-direction: column;
+    gap: .2rem;
+    padding: .8rem 1rem 1rem;
+    background: #ffffffee !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+    border-radius: 14px;
+    z-index: 1200;
+  }
+  .nav.open{ display: flex !important; }
+
+  /* Tighter link padding for compact panel */
+  .nav a{ padding: .6rem .8rem; border-radius: 10px; white-space: nowrap; }
+}
+
+/* =============================================================
+   Mobile dropdown fix — side panel + full links — 2025-09-03
+   CSS-only fix: ensure the hamburger opens a compact RIGHT panel
+   and that *all* links are visible inside the dropdown.
+   ============================================================= */
+@media (max-width: 860px){
+  /* Make sure the hamburger is visible and clickable */
+  .header-inner{ position: relative; }
+  .hamburger{
+    display: block !important;
+    position: absolute !important;
+    right: 8px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 2000 !important;
+  }
+
+  /* Compact right-side dropdown panel (never full-width) */
+  .nav{
+    position: fixed !important;
+    top: var(--header-height) !important;
+    right: 12px !important;
+    left: auto !important;
+    width: min(300px, 85vw) !important;
+    max-height: 70vh !important;
+    overflow: auto !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: .2rem !important;
+    padding: .8rem 1rem 1rem !important;
+    background: #ffffff !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,.12) !important;
+    border-radius: 14px !important;
+    z-index: 1900 !important;
+  }
+  .nav.open{ display: flex !important; }
+
+  /* Ensure every link shows and is easy to tap */
+  .nav a{
+    display: block !important;
+    padding: .65rem .8rem !important;
+    border-radius: 10px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* =============================================================
+   Mobile dropdown — transparent list, include Home (no panel block)
+   2025-09-03
+   - Do NOT render the dropdown as a boxed/panel block
+   - Keep it a simple transparent list aligned to the right
+   - Ensure 'Home' appears in the dropdown
+   ============================================================= */
+@media (max-width: 860px){
+  /* Transparent, non-panel dropdown aligned to the right */
+  .site-header .header-inner{ position: relative; }
+  .site-header .nav{
+    position: absolute !important;
+    top: var(--header-height) !important;
+    right: 8px !important;
+    left: auto !important;
+    width: auto !important;          /* no fixed/panel width */
+    max-height: 70vh !important;
+    overflow: visible !important;    /* let it breathe */
+    display: none !important;
+    flex-direction: column !important;
+    gap: .25rem !important;
+    padding: 0 !important;           /* remove panel padding */
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    z-index: 1900 !important;
+  }
+  .site-header .nav.open{ display: flex !important; }
+
+  /* Links as simple items (no boxed backgrounds) */
+  .site-header .nav a{
+    display: block !important;
+    padding: .4rem 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  /* Make sure 'Home' is present and visible in the dropdown */
+  .site-header .nav a[href="index.html"]{ display: block !important; }
+
+  /* Keep the hamburger as-is; just ensuring Z stacking */
+  .hamburger{ z-index: 2000 !important; }
+}
+
+/* =============================================================
+   Mobile dropdown — appear after hamburger, Home first (no panel)
+   2025-09-03
+   - Position the dropdown immediately after the header (under the hamburger)
+   - Keep it a transparent list (no panel)
+   - Ensure 'Home' is the first item visually
+   ============================================================= */
+@media (max-width: 860px){
+  .site-header .header-inner{ position: relative; }
+
+  .site-header .nav{
+    position: absolute !important;
+    top: calc(100% + 4px) !important;  /* appears just below the header/hamburger */
+    right: 8px !important;
+    left: auto !important;
+    width: auto !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: .25rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    z-index: 1900 !important;
+  }
+  .site-header .nav.open{ display: flex !important; }
+
+  .site-header .nav a{
+    display: block !important;
+    padding: .4rem 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  /* Ensure 'Home' shows first, regardless of DOM insertion order */
+  .site-header .nav a[href="index.html"]{ order: 0 !important; }
+  .site-header .nav a:not([href="index.html"]){ order: 1 !important; }
+}
+
+/* =============================================================
+   Mobile dropdown + hamburger: white text/icons — 2025-09-03
+   ============================================================= */
+@media (max-width: 860px){
+  /* Make dropdown link text white */
+  .site-header .nav a,
+  .site-header .nav a:link,
+  .site-header .nav a:visited {
+    color: #ffffff !important;
+  }
+  .site-header .nav a:hover,
+  .site-header .nav a:focus {
+    color: #ffffff !important;
+    opacity: .9;
+    text-decoration: underline;
+  }
+
+  /* Make hamburger icon (the bars) white */
+  .hamburger span{
+    background: #ffffff !important;
+  }
+  .hamburger{
+    color: #ffffff !important;
+  }
+}
+
+/* =============================================================
+   Hamburger click fix (home) + blue icon, white menu text — 2025-09-03
+   - Ensure hamburger is clickable on home by boosting z-index
+   - Keep hamburger (bars) BLUE and dropdown text WHITE
+   - No other layout or color changes
+   ============================================================= */
+@media (max-width: 860px){
+  /* Make sure header & hamburger sit above hero content */
+  .site-header{ z-index: 5000 !important; }
+  .hamburger{ z-index: 6000 !important; pointer-events: auto !important; }
+
+  /* Hamburger bars BLUE */
+  .hamburger span{ background: var(--sa-blue) !important; }
+
+  /* Dropdown link text WHITE */
+  .site-header .nav a,
+  .site-header .nav a:link,
+  .site-header .nav a:visited{ color: #ffffff !important; }
+}
+
+/* =============================================================
+   Mobile dropdown link text: BLUE (override) — 2025-09-03
+   ============================================================= */
+@media (max-width: 860px){
+  .site-header .nav a,
+  .site-header .nav a:link,
+  .site-header .nav a:visited{
+    color: var(--sa-blue) !important;
+  }
+}
+
+/* =============================================================
+   Mobile dropdown: white background + blue text + border — 2025-09-03
+   ============================================================= */
+@media (max-width: 860px){
+  .site-header .nav{
+    background: #ffffff !important;
+    border: 1px solid var(--sa-blue) !important;
+    border-radius: 12px !important;
+    padding: .6rem .8rem !important;
+    box-shadow: none !important;
+  }
+  .site-header .nav a,
+  .site-header .nav a:link,
+  .site-header .nav a:visited{
+    color: var(--sa-blue) !important;
+  }
+}
+
+/* =============================================================
+   Mobile Contact hover — remove yellow in dropdown only — 2025-09-03
+   ============================================================= */
+@media (max-width: 860px){
+  /* Neutralize the gold/yellow hover JUST for the Contact link inside the mobile dropdown */
+  .site-header .nav a[href="contact.html"],
+  .site-header .nav a[href="contact.html"]:hover,
+  .site-header .nav a[href="contact.html"]:focus{
+    background: transparent !important;
+    color: var(--sa-blue) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    border: 0 !important;
+  }
+  /* If Contact carries button classes, neutralize them only in the dropdown */
+  .site-header .nav a[href="contact.html"].btn,
+  .site-header .nav a[href="contact.html"].btn-gold{
+    background: transparent !important;
+    color: var(--sa-blue) !important;
+  }
+  .site-header .nav a[href="contact.html"].btn-gold:hover{
+    background: transparent !important;
+  }
+}
+
+/* =============================================================
+   Footer: FORCE WHITE on all pages (final override) — 2025-09-03
+   Ensures pages like Programs cannot override the footer color.
+   (No changes to text/link colors or layout.)
+   ============================================================= */
+body.programs footer.site-footer,
+body.programs .site-footer,
+footer.site-footer,
+.site-footer{
+  background: #ffffff !important;
+}
+
+/* =============================================================
+   Footer: compact height + 3 columns on all pages — 2025-09-03
+   (No color changes; only size/layout)
+   ============================================================= */
+.site-footer{
+  padding: .8rem 0 1rem !important;   /* smaller vertical height */
+}
+.footer-grid{
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important; /* 3 columns everywhere */
+  gap: .5rem !important;
+  align-items: start;
+}
+.site-footer .container{
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+/* Slightly smaller footer typography */
+.site-footer p,
+.site-footer li,
+.site-footer a,
+.site-footer .small,
+.site-footer .tiny{
+  font-size: .85rem !important;
+  line-height: 1.25 !important;
+}
+/* Keep 3 columns even on mobile, per request */
+@media (max-width: 900px){
+  .footer-grid{ grid-template-columns: repeat(3, minmax(0,1fr)) !important; }
+}
+
+/* =============================================================
+   Footer: 3 columns ONLY on mobile (restore desktop layout) — 2025-09-03
+   ============================================================= */
+/* Desktop & larger: restore original 3-area layout */
+@media (min-width: 901px){
+  .footer-grid{
+    grid-template-columns: 1.2fr .6fr .6fr !important;
+  }
+}
+
+/* Mobile (<=900px): keep 3 columns as requested */
+@media (max-width: 900px){
+  .footer-grid{
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  }
+}
+
+/* =============================================================
+   Footer grid: Desktop=2 columns, Mobile+Tablet=3 columns — 2025-09-03
+   ============================================================= */
+/* Mobile + Tablet (<=1024px): 3 columns */
+@media (max-width: 1024px){
+  .footer-grid{
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  }
+}
+
+/* Desktop (>=1025px): 2 columns */
+@media (min-width: 1025px){
+  .footer-grid{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
