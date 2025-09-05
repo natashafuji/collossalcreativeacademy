@@ -46,44 +46,63 @@
   </section>
 
   <section class="container form-wrap">
-    <form class="card form" method="post" action="#" onsubmit="event.preventDefault(); alert('Form submitted (demo). Connect to Formspree or your email later.');">
-      <div class="grid-2">
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input id="name" name="name" type="text" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
-        </div>
-        <div class="field">
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" placeholder="+27 ...">
-        </div>
-        <div class="field">
-          <label for="program">Interested Program</label>
-          <select id="program" name="program" required>
-            <option value="">Select...</option>
-            <option>Sketching & Drawing</option>
-            <option>Fabric & Canvas Painting</option>
-            <option>Sewing & Product Design</option>
-            <option>Market-Ready Marketing</option>
-            <option>Beauty &amp; Makeup</option>
-            <option>Natural Skincare Formulation</option>
-          </select>
-        </div>
+  <!-- Replace this line: action="#" ... onsubmit="event.preventDefault()..." -->
+  <form class="card form" id="contactForm"
+        action="https://formspree.io/f/xxxxabcd"
+        method="POST" accept-charset="UTF-8">
+    <div class="grid-2">
+      <div class="field">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" required>
       </div>
       <div class="field">
-        <label for="goals">Your Goals</label>
-        <textarea id="goals" name="goals" rows="5" placeholder="Tell us what you want to create and sell..."></textarea>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
       </div>
-      <div class="agree">
-        <label><input type="checkbox" required> I consent to be contacted about my inquiry.</label>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="+27 ...">
       </div>
-      <button class="btn btn-gold" type="submit">Send Inquiry</button>
-      <p class="tiny muted">Prefer email? Write to <a href="mailto:info@collossalcreativeacademy.co.za">info@collossalcreativeacademy.co.za</a></p>
-    </form>
-  </section>
+      <div class="field">
+        <label for="program">Interested Program</label>
+        <select id="program" name="program" required>
+          <option value="">Select...</option>
+          <option>Sketching & Drawing</option>
+          <option>Fabric & Canvas Painting</option>
+          <option>Sewing & Product Design</option>
+          <option>Market-Ready Marketing</option>
+          <option>Beauty &amp; Makeup</option>
+          <option>Natural Skincare Formulation</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="goals">Your Goals</label>
+      <textarea id="goals" name="goals" rows="5"
+        placeholder="Tell us what you want to create and sell..."></textarea>
+    </div>
+
+    <!-- Give the consent checkbox a name so it’s included in the submission -->
+    <div class="agree">
+      <label><input type="checkbox" name="consent" value="yes" required>
+        I consent to be contacted about my inquiry.</label>
+    </div>
+
+    <!-- Optional: simple spam honeypot -->
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+           style="position:absolute; left:-9999px" aria-hidden="true">
+
+    <!-- Optional: identify which form/page this came from -->
+    <input type="hidden" name="form_name" value="Contact & Enrollment">
+    <input type="hidden" name="page" value="contact.html">
+
+    <button class="btn btn-gold" type="submit">Send Inquiry</button>
+    <p class="tiny muted">Prefer email? Write to
+      <a href="mailto:info@collossalcreativeacademy.co.za">info@collossalcreativeacademy.co.za</a></p>
+  </form>
+</section>
+
 <section class="image-strip"><div class="container strip">
           <img src="online-shop-1.png" alt="Creative collage 4" width="600" height="900" loading="lazy" decoding="async">
           <img src="natural-skincare-1.png" alt="Creative collage 1" width="600" height="900" loading="lazy" decoding="async">
@@ -125,5 +144,46 @@
 
 
 <script src="scripts.js"></script>
+
+<script>
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', async (e) => {
+  // Prevent default navigation
+  e.preventDefault();
+
+  // Optional: show a sending state
+  let status = document.getElementById('form-status');
+  if (!status) {
+    status = document.createElement('p');
+    status.id = 'form-status';
+    status.className = 'tiny muted';
+    form.appendChild(status);
+  }
+  status.textContent = 'Sending…';
+
+  try {
+    const data = new FormData(form);
+    const resp = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (resp.ok) {
+      form.reset();
+      status.textContent = 'Thanks! We’ll be in touch shortly.';
+    } else {
+      const result = await resp.json().catch(() => ({}));
+      status.textContent = result.errors
+        ? result.errors.map(e => e.message).join(', ')
+        : 'Oops! There was a problem submitting your form.';
+    }
+  } catch (err) {
+    status.textContent = 'Network error. Please try again.';
+  }
+});
+</script>
+  
 </body>
 </html>
