@@ -14,7 +14,12 @@
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Home">
       <!-- Logo placeholder: replace the rectangle below with your actual logo -->
-      <img class="logo-img" src="logo-icon-only.png" srcset="logo-icon-only.png 1x, logo-icon-only@2x.png 2x" alt="Collossal Creative Academy logo" width="96" height="64">
+      <img class="logo-img"
+           src="logo-icon-only.png"
+           srcset="logo-icon-only.png 1x, logo-icon-only@2x.png 2x"
+           alt="Collossal Creative Academy logo"
+           width="96" height="64"
+           fetchpriority="high" decoding="async">
       <span class="brand-text"><span class="brand-name">Collossal</span> <span class="brand-sub">Creative Academy</span></span>
     </a>
 
@@ -70,9 +75,9 @@
 
   
 <section class="image-strip"><div class="container strip">
-          <img src="beauty-spa.jpg"  alt="Creative">
-          <img src="pencil-flowers.jpg"alt="Creative">
-          <img src="market-2.png"alt="Creative">
+          <img src="beauty-spa.jpg" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
+          <img src="pencil-flowers.jpg" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
+          <img src="market-2.png" alt="Creative" width="600" height="900" loading="lazy" decoding="async">
         </div></section>
 </main>
 
