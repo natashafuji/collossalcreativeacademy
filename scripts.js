@@ -42,9 +42,9 @@
   const el = document.querySelector('.slide.sewing-rotator');
   if(!el) return;
   const imgs = [
-    "images/ai/sewing-offer-1.jpg",
-    "images/ai/sewing-offer-2.jpg",
-    "images/ai/sewing-offer-3.jpg"
+    "sewing-offer-1.jpg",
+    "sewing-offer-2.jpg",
+    "sewing-offer-3.jpg"
   ];
   let i = 0;
   function setBg(idx){
