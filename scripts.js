@@ -38,71 +38,71 @@
 
 
 /* Lazy-load slide backgrounds */
-(function(){
-  const slides = document.querySelectorAll('.hero-slider .slide[data-bg]');
-  if(!slides.length) return;
-  const gradient = "linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28))";
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        const el = entry.target;
-        const bg = el.dataset.bg;
-        el.style.backgroundImage = `${gradient}, url('${bg}')`;
-        el.style.backgroundPosition = 'center';
-        el.style.backgroundSize = 'cover';
-        el.style.backgroundRepeat = 'no-repeat';
-        io.unobserve(el);
-      }
-    });
-  });
-  slides.forEach(s => io.observe(s));
-})();
+// (function(){
+//   const slides = document.querySelectorAll('.hero-slider .slide[data-bg]');
+//   if(!slides.length) return;
+//   const gradient = "linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28))";
+//   const io = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//       if(entry.isIntersecting){
+//         const el = entry.target;
+//         const bg = el.dataset.bg;
+//         el.style.backgroundImage = `${gradient}, url('${bg}')`;
+//         el.style.backgroundPosition = 'center';
+//         el.style.backgroundSize = 'cover';
+//         el.style.backgroundRepeat = 'no-repeat';
+//         io.unobserve(el);
+//       }
+//     });
+//   });
+//   slides.forEach(s => io.observe(s));
+// })();
 
 
 /* Rotating background for Sewing & Product Design slide */
-(function(){
-  const el = document.querySelector('.slide.sewing-rotator');
-  if(!el) return;
-  const imgs = [
-    "sewing-offer-1.jpg",
-    "sewing-offer-2.jpg",
-    "sewing-offer-3.jpg"
-  ];
-  const cache = {};
-  let i = 0;
+// (function(){
+//   const el = document.querySelector('.slide.sewing-rotator');
+//   if(!el) return;
+//   const imgs = [
+//     "sewing-offer-1.jpg",
+//     "sewing-offer-2.jpg",
+//     "sewing-offer-3.jpg"
+//   ];
+//   const cache = {};
+//   let i = 0;
 
-  function setBg(idx){
-    el.style.background = `linear-gradient(0deg, rgba(0,0,0,.15), rgba(0,0,0,.15)), url(${imgs[idx]}) center/cover no-repeat`;
-  }
+//   function setBg(idx){
+//     el.style.background = `linear-gradient(0deg, rgba(0,0,0,.15), rgba(0,0,0,.15)), url(${imgs[idx]}) center/cover no-repeat`;
+//   }
 
-  function load(idx, cb){
-    if(cache[idx]) return cb();
-    const img = new Image();
-    img.src = imgs[idx];
-    img.onload = () => { cache[idx] = true; cb(); };
-  }
+//   function load(idx, cb){
+//     if(cache[idx]) return cb();
+//     const img = new Image();
+//     img.src = imgs[idx];
+//     img.onload = () => { cache[idx] = true; cb(); };
+//   }
 
-  function start(){
-    cache[i] = true;
-    setBg(i);
-    setInterval(()=>{
-      i = (i+1)%imgs.length;
-      load(i, ()=>setBg(i));
-    }, 3500);
-  }
+//   function start(){
+//     cache[i] = true;
+//     setBg(i);
+//     setInterval(()=>{
+//       i = (i+1)%imgs.length;
+//       load(i, ()=>setBg(i));
+//     }, 3500);
+//   }
 
-  if('IntersectionObserver' in window){
-    const obs = new IntersectionObserver((entries, observer)=>{
-      if(entries.some(e=>e.isIntersecting)){
-        observer.disconnect();
-        start();
-      }
-    });
-    obs.observe(el);
-  }else{
-    start();
-  }
-})();
+//   if('IntersectionObserver' in window){
+//     const obs = new IntersectionObserver((entries, observer)=>{
+//       if(entries.some(e=>e.isIntersecting)){
+//         observer.disconnect();
+//         start();
+//       }
+//     });
+//     obs.observe(el);
+//   }else{
+//     start();
+//   }
+// })();
 
 
 /* overlay slider controls */
