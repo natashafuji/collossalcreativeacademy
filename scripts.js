@@ -68,12 +68,40 @@
     "sewing-offer-2.jpg",
     "sewing-offer-3.jpg"
   ];
+  const cache = {};
   let i = 0;
+
   function setBg(idx){
     el.style.background = `linear-gradient(0deg, rgba(0,0,0,.15), rgba(0,0,0,.15)), url(${imgs[idx]}) center/cover no-repeat`;
   }
-  setBg(i);
-  setInterval(()=>{ i=(i+1)%imgs.length; setBg(i); }, 3500);
+
+  function load(idx, cb){
+    if(cache[idx]) return cb();
+    const img = new Image();
+    img.src = imgs[idx];
+    img.onload = () => { cache[idx] = true; cb(); };
+  }
+
+  function start(){
+    cache[i] = true;
+    setBg(i);
+    setInterval(()=>{
+      i = (i+1)%imgs.length;
+      load(i, ()=>setBg(i));
+    }, 3500);
+  }
+
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver((entries, observer)=>{
+      if(entries.some(e=>e.isIntersecting)){
+        observer.disconnect();
+        start();
+      }
+    });
+    obs.observe(el);
+  }else{
+    start();
+  }
 })();
 
 
