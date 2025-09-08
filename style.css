@@ -573,7 +573,7 @@ body.programs footer.site-footer a:visited {
   margin: .4rem 0 .9rem;
   background:
     linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)),
-    var(--img) center/cover no-repeat;
+    var(--img, none) center/cover no-repeat;
   box-shadow: var(--shadow);
 }
 
@@ -644,7 +644,7 @@ body.programs footer.site-footer a:visited {
     border-radius: 14px !important;
     background:
       linear-gradient(0deg, rgba(0,0,0,.18), rgba(0,0,0,.18)),
-      var(--img) center/cover no-repeat !important;
+      var(--img, none) center/cover no-repeat !important;
     box-shadow: var(--shadow) !important;
   }
   
