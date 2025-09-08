@@ -279,21 +279,6 @@ body:not(.home) h1, body:not(.home) h2, body:not(.home) h3{ color: var(--sa-gree
 .image-strip .strip img{width:100%;height:220px;object-fit:cover;border-radius:16px}
 
 /* === FINAL, PAGE-SPECIFIC HERO COLOURS === */
-body.home .hero, body.home .page-hero{
-  background: none !important; background-color: var(--sa-blue) !important;
-}
-body.about .hero, body.about .page-hero, body.about .page-hero.warm{
-  background: none !important; background-color: var(--sa-green) !important;
-}
-body.programs .hero, body.programs .page-hero, body.programs .page-hero.cool{
-  background: none !important; background-color: var(--sa-red) !important;
-}
-body.contact .hero, body.contact .page-hero, body.contact .page-hero.stripes{
-  background: none !important; background-color: var(--sa-gold) !important;
-}
-body.blog .hero, body.blog .page-hero, body.blog .page-hero.gradient{
-  background: none !important; background-color: var(--sa-green) !important;
-}
 .hero::before, .page-hero::before{ content: none !important; display: none !important; }
 
 /* === HOME slider background photos === */
