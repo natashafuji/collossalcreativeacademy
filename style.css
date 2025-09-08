@@ -190,28 +190,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--sa-blue); box-shadow:
   background: linear-gradient(135deg,#eef2ff,#f7fff7) !important;
 }
 .page-hero.warm{
-  background: linear-gradient(120deg,#FFFDF6,#FFF7E6), url('hero-about-warm.svg') center/cover no-repeat !important;
+  background: linear-gradient(120deg,#FFFDF6,#FFF7E6) !important;
 }
 .page-hero.cool{
-  background: linear-gradient(120deg,#F4FBFF,#EAF8F5), url('hero-programs-cool.svg') center/cover no-repeat !important;
-}
-
-/* real-photo heroes (kept) */
-.hero{
-  background: linear-gradient(0deg, rgba(0,0,0,.08), rgba(0,0,0,.08)),
-              image-set(url('hero-home.webp') type('image/webp'), url('hero-home.jpg') type('image/jpeg')) center/cover no-repeat !important;
-}
-.page-hero.warm{
-  background: linear-gradient(0deg, rgba(0,0,0,.12), rgba(0,0,0,.12)),
-              image-set(url('hero-about.webp') type('image/webp'), url('hero-about.jpg') type('image/jpeg')) center/cover no-repeat !important;
-}
-.page-hero.cool{
-  background: linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,.10)),
-              image-set(url('hero-programs.webp') type('image/webp'), url('hero-programs.jpg') type('image/jpeg')) center/cover no-repeat !important;
-}
-.page-hero.stripes{
-  background: linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,.10)),
-              image-set(url('hero-contact.webp') type('image/webp'), url('hero-contact.jpg') type('image/jpeg')) center/cover no-repeat !important;
+  background: linear-gradient(120deg,#F4FBFF,#EAF8F5) !important;
 }
 
 /* soft rounded hero corners */
