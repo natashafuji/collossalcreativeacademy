@@ -37,6 +37,28 @@
 })();
 
 
+/* Lazy-load slide backgrounds */
+(function(){
+  const slides = document.querySelectorAll('.hero-slider .slide[data-bg]');
+  if(!slides.length) return;
+  const gradient = "linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28))";
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const bg = el.dataset.bg;
+        el.style.backgroundImage = `${gradient}, url('${bg}')`;
+        el.style.backgroundPosition = 'center';
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundRepeat = 'no-repeat';
+        io.unobserve(el);
+      }
+    });
+  });
+  slides.forEach(s => io.observe(s));
+})();
+
+
 /* Rotating background for Sewing & Product Design slide */
 (function(){
   const el = document.querySelector('.slide.sewing-rotator');

@@ -283,20 +283,16 @@ body.blog .hero, body.blog .page-hero, body.blog .page-hero.gradient{
 /* === HOME slider background photos === */
 .hero-slider .slides .slide{ background-blend-mode: normal; }
 .hero-slider .slides .slide:nth-child(1){
-  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('sketch-hand.jpg') center/cover no-repeat !important;
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)) !important;
 }
 .hero-slider .slides .slide:nth-child(2){
-  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('block-print.jpg') center/cover no-repeat !important;
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)) !important;
 }
 .hero-slider .slides .slide:nth-child(3){
-  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('sewing-machine.jpg') center/cover no-repeat !important;
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)) !important;
 }
 .hero-slider .slides .slide:nth-child(4){
-  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)),
-              url('sketch-to-runway.jpg') center/cover no-repeat !important;
+  background: linear-gradient(135deg, rgba(248,250,252,.28), rgba(238,242,255,.28)) !important;
 }
 
 /* === HOME tweaks === */
