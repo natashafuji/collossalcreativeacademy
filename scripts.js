@@ -95,3 +95,22 @@
   window.addEventListener('resize',()=>go(i));
   go(0);
 })();
+
+/* lazy-load program hero backgrounds */
+(function(){
+  const heroes = document.querySelectorAll('.program-hero[data-bg]');
+  if(!('IntersectionObserver' in window) || heroes.length===0) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const img = el.getAttribute('data-bg');
+        if(img){
+          el.style.setProperty('--img', `url('${img}')`);
+        }
+        io.unobserve(el);
+      }
+    });
+  });
+  heroes.forEach(el => io.observe(el));
+})();
